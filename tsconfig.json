@@ -3,6 +3,23 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "paths": {
+      "@api/*": [
+        "./src/app/@api/*"
+      ],
+      "@common/*": [
+        "./src/app/@common/*"
+      ],
+      "@component/*": [
+        "./src/app/@component/*"
+      ],
+      "@pages/*": [
+        "./src/app/pages/*"
+      ],
+      "@theme/*": [
+        "./src/app/@theme/*"
+      ]
+    },
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
