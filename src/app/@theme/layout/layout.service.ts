@@ -1,29 +1,29 @@
-import { Injectable } from "@angular/core"
-import { Observable, Subject } from "rxjs"
-import { delay, shareReplay, debounceTime } from "rxjs/operators"
+import { Injectable } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
+import { delay, shareReplay, debounceTime } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root',
+    providedIn: 'root',
 })
 export class LayoutService {
 
-    protected layoutSize$ = new Subject();
+    protected layoutSize$ = new Subject<void>(); // ← 這裡要補上 <void>
     protected layoutSizeChange$ = this.layoutSize$.pipe(
         shareReplay({ refCount: true }),
     );
 
-    changeLayoutSize() {
-        this.layoutSize$.next()
+    changeLayoutSize(): void {
+        this.layoutSize$.next();
     }
 
-    onChangeLayoutSize(): Observable<any> {
-        return this.layoutSizeChange$.pipe(delay(1))
+    onChangeLayoutSize(): Observable<void> {
+        return this.layoutSizeChange$.pipe(delay(1));
     }
 
-    onSafeChangeLayoutSize(): Observable<any> {
+    onSafeChangeLayoutSize(): Observable<void> {
         return this.layoutSizeChange$.pipe(
             debounceTime(350)
-        )
+        );
     }
 
 }
