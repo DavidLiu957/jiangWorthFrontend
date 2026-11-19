@@ -2,12 +2,11 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "cli": {
-    "packageManager": "npm",
-    "analytics": false
+    "packageManager": "npm"
   },
   "newProjectRoot": "projects",
   "projects": {
-    "jiangWorthFrontend": {
+    "jiang-worth-frontend": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -30,9 +29,7 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.scss"
-            ]
+            "styles": ["src/styles.scss"]
           },
           "configurations": {
             "production": {
@@ -62,10 +59,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "jiangWorthFrontend:build:production"
+              "buildTarget": "jiang-worth-frontend:build:production"
             },
             "development": {
-              "buildTarget": "jiangWorthFrontend:build:development"
+              "buildTarget": "jiang-worth-frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
